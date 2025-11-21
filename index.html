@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Accueil personnalisée</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: url('E14tyjTwU1nRYWL35QRFY.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .search-box {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    input[type="text"] {
+      width: 400px;
+      padding: 10px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+    }
+    .links a {
+      margin: 0 15px;
+      color: #ffdddd;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .quote, .clock {
+      margin-top: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="search-box">
+    <form action="https://www.google.com/search" method="get">
+      <input type="text" name="q" placeholder="Recherche Google...">
+    </form>
+  </div>
+
+  <div class="links">
+    <a href="https://fr.wikipedia.org" target="_blank">Wikipédia</a>
+    <a href="https://www.youtube.com" target="_blank">YouTube</a>
+    <a href="https://www.lemonde.fr" target="_blank">Le Monde</a>
+  </div>
+
+  <div class="quote" id="quote">Citation du jour...</div>
+  <div class="clock" id="clock">--:--:--</div>
+
+  <script>
+    // Horloge en direct
+    function updateClock() {
+      const now = new Date();
+      const time = now.toLocaleTimeString('fr-FR');
+      document.getElementById('clock').textContent = time;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // 30 citations locales (une par jour du mois)
+    const citations = [
+      "La vie est un mystère qu’il faut vivre, et non un problème à résoudre. — Gandhi",
+      "Il n’y a qu’un bonheur dans la vie, c’est d’aimer et d’être aimé. — George Sand",
+      "Fais de ta vie un rêve, et d’un rêve une réalité. — Saint-Exupéry",
+      "Le succès est la somme de petits efforts répétés jour après jour. — Anonyme",
+      "Le plus grand voyage commence toujours par un pas. — Lao Tseu",
+      "La liberté commence où l’ignorance finit. — Victor Hugo",
+      "Le courage n’est pas l’absence de peur, mais la capacité de la vaincre. — Nelson Mandela",
+      "On ne voit bien qu’avec le cœur. L’essentiel est invisible pour les yeux. — Saint-Exupéry",
+      "La simplicité est la sophistication suprême. — Léonard de Vinci",
+      "Le bonheur est parfois caché dans l’inconnu. — Victor Hugo",
+      "Apprends comme si tu devais vivre pour toujours. Vis comme si tu devais mourir demain. — Gandhi",
+      "La patience est amère, mais son fruit est doux. — Rousseau",
+      "La connaissance est le pouvoir. — Francis Bacon",
+      "Rien n’est impossible à celui qui ose. — Alexandre le Grand",
+      "La vie est faite de petits bonheurs. — Anonyme",
+      "Il faut toujours viser la lune, car même en cas d’échec on atterrit dans les étoiles. — Oscar Wilde",
+      "La vraie générosité envers l’avenir consiste à tout donner au présent. — Camus",
+      "Le monde est un livre, et ceux qui ne voyagent pas n’en lisent qu’une page. — Saint Augustin",
+      "La musique donne une âme à nos cœurs et des ailes à la pensée. — Platon",
+      "Le rire est le soleil qui chasse l’hiver du visage humain. — Victor Hugo",
+      "La vie est courte, mais large. — Proverbe espagnol",
+      "Celui qui déplace la montagne, c’est celui qui commence par enlever les petites pierres. — Confucius",
+      "Le plus grand risque est de ne pas en prendre. — Anonyme",
+      "La beauté sauvera le monde. — Dostoïevski",
+      "Le futur appartient à ceux qui croient à la beauté de leurs rêves. — Eleanor Roosevelt",
+      "La gratitude transforme ce que nous avons en suffisance. — Anonyme",
+      "Un voyage de mille lieues commence toujours par un pas. — Lao Tseu",
+      "La sagesse commence dans l’émerveillement. — Socrate",
+      "La vraie richesse est celle du cœur. — Anonyme",
+      "Chaque jour est une nouvelle chance de changer ta vie. — Anonyme"
+    ];
+
+    const today = new Date();
+    const dayIndex = today.getDate() - 1; // 0 = 1er jour du mois
+    document.getElementById('quote').textContent = citations[dayIndex];
+  </script>
+</body>
+</html>
+
